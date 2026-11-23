@@ -1,0 +1,86 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Youmad\Endurance\Kml;
+
+use Youmad\Endurance\Kml\Exception\KmlObjectNotFound;
+use Youmad\Endurance\Kml\Internal\DocumentParser;
+use Youmad\Endurance\Kml\Internal\XmlInput;
+use Youmad\Endurance\Kml\Model\KmlDocument;
+use Youmad\Endurance\Kml\Model\KmlObject;
+use Youmad\Endurance\Kml\Model\KmlObjectReadResult;
+use Youmad\Endurance\Kml\Model\KmlPoint;
+
+final readonly class Reader
+{
+    public function __construct(private int $maximumBytes = 268435456)
+    {
+        if ($maximumBytes < 1) {
+            throw new \InvalidArgumentException('KML byte bound must be positive.');
+        }
+    }
+
+    /**
+     * @param resource                $stream   Caller-owned; non-seekable input is supported
+     * @param (\Closure(): void)|null $progress
+     *
+     * @return \Generator<int,KmlObject,void,KmlDocument>
+     */
+    public function objects(mixed $stream, ?\Closure $progress = null): \Generator
+    {
+        $events = $this->events($stream, $progress);
+        foreach ($events as $event) {
+            if ($event instanceof KmlObject) {
+                yield $event;
+            }
+        }
+
+        return $events->getReturn();
+    }
+
+    /**
+     * @param resource                $stream
+     * @param (\Closure(): void)|null $progress
+     *
+     * @return \Generator<int,KmlPoint,void,KmlObjectReadResult>
+     */
+    public function objectPoints(mixed $stream, string $locator, ?\Closure $progress = null): \Generator
+    {
+        if (!preg_match('/^kml\.v1\/placemark\[([1-9][0-9]*)\]$/D', $locator, $match)
+            || strlen($match[1]) > strlen((string) PHP_INT_MAX)
+            || (strlen($match[1]) === strlen((string) PHP_INT_MAX) && strcmp($match[1], (string) PHP_INT_MAX) > 0)) {
+            throw new \InvalidArgumentException('Expected a canonical kml.v1 Placemark locator.');
+        }
+        $index = (int) $match[1];
+        $found = null;
+        $events = $this->events($stream, $progress);
+        foreach ($events as $event) {
+            if (($event instanceof KmlPoint ? $event->placemarkIndex : $event->index) !== $index) {
+                continue;
+            }
+            if ($event instanceof KmlPoint) {
+                yield $event;
+            } else {
+                $found = $event;
+            }
+        }
+        $document = $events->getReturn();
+        if (null === $found) {
+            throw new KmlObjectNotFound('KML Placemark is absent from the source.');
+        }
+
+        return new KmlObjectReadResult($found, $document);
+    }
+
+    /**
+     * @param resource               $stream
+     * @param (\Closure():void)|null $progress
+     *
+     * @return \Generator<int,KmlPoint|KmlObject,void,KmlDocument>
+     */
+    private function events(mixed $stream, ?\Closure $progress): \Generator
+    {
+        return new XmlInput($this->maximumBytes)->events($stream, new DocumentParser(), $progress);
+    }
+}
