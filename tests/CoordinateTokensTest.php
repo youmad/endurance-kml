@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Tests;
+namespace Endurance\Kml\Tests;
 
+use Endurance\Kml\Internal\CoordinateTokens;
 use PHPUnit\Framework\TestCase;
-use Youmad\Endurance\Kml\Internal\CoordinateTokens;
 
 final class CoordinateTokensTest extends TestCase
 {

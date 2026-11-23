@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Internal;
+namespace Endurance\Kml\Internal;
 
-use Youmad\Endurance\Kml\Exception\InvalidKml;
-use Youmad\Endurance\Kml\Model\AltitudeMode;
-use Youmad\Endurance\Kml\Model\KmlDocument;
-use Youmad\Endurance\Kml\Model\KmlObject;
-use Youmad\Endurance\Kml\Model\KmlPoint;
+use Endurance\Kml\Exception\InvalidKml;
+use Endurance\Kml\Model\AltitudeMode;
+use Endurance\Kml\Model\KmlDocument;
+use Endurance\Kml\Model\KmlObject;
+use Endurance\Kml\Model\KmlPoint;
 
 /**
  * The installed kml.v1 grammar. New accepted geometry belongs to PathParser.

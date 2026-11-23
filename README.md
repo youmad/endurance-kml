@@ -3,11 +3,11 @@
 Streaming KML 2.2 subset reader for PHP 8.5 with ext-xml.
 
 ```bash
-composer require youmad/endurance-kml
+composer require endurance/kml
 ```
 
 ```php
-use Youmad\Endurance\Kml\PathReader;
+use Endurance\Kml\PathReader;
 
 $points = new PathReader()->objectPoints($input, 'kml.v2/placemark[1]');
 foreach ($points as $point) {

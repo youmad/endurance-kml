@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Model;
+namespace Endurance\Kml\Model;
 
 /** A missing GX position retains its sample/time and splits geometry. */
 final readonly class KmlPathPoint

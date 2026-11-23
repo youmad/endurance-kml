@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Model;
+namespace Endurance\Kml\Model;
 
 final readonly class KmlObjectReadResult
 {

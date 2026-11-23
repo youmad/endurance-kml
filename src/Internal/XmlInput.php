@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Internal;
+namespace Endurance\Kml\Internal;
 
-use Youmad\Endurance\Kml\Exception\InvalidKml;
+use Endurance\Kml\Exception\InvalidKml;
 
 /** @internal */
 final readonly class XmlInput

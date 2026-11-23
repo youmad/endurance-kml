@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml;
+namespace Endurance\Kml;
 
-use Youmad\Endurance\Kml\Exception\KmlObjectNotFound;
-use Youmad\Endurance\Kml\Internal\DocumentParser;
-use Youmad\Endurance\Kml\Internal\XmlInput;
-use Youmad\Endurance\Kml\Model\KmlDocument;
-use Youmad\Endurance\Kml\Model\KmlObject;
-use Youmad\Endurance\Kml\Model\KmlObjectReadResult;
-use Youmad\Endurance\Kml\Model\KmlPoint;
+use Endurance\Kml\Exception\KmlObjectNotFound;
+use Endurance\Kml\Internal\DocumentParser;
+use Endurance\Kml\Internal\XmlInput;
+use Endurance\Kml\Model\KmlDocument;
+use Endurance\Kml\Model\KmlObject;
+use Endurance\Kml\Model\KmlObjectReadResult;
+use Endurance\Kml\Model\KmlPoint;
 
 final readonly class Reader
 {

@@ -1,5 +1,5 @@
 {
-    "name": "youmad/endurance-kml",
+    "name": "endurance/kml",
     "description": "Streaming KML 2.2 source inspection",
     "type": "library",
     "license": "MPL-2.0",
@@ -12,12 +12,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Youmad\\Endurance\\Kml\\": "src/"
+            "Endurance\\Kml\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Youmad\\Endurance\\Kml\\Tests\\": "tests/"
+            "Endurance\\Kml\\Tests\\": "tests/"
         }
     },
     "scripts": {

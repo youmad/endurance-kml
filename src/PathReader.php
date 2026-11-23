@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml;
+namespace Endurance\Kml;
 
-use Youmad\Endurance\Kml\Exception\KmlObjectNotFound;
-use Youmad\Endurance\Kml\Internal\PathParser;
-use Youmad\Endurance\Kml\Internal\XmlInput;
-use Youmad\Endurance\Kml\Model\KmlDocument;
-use Youmad\Endurance\Kml\Model\KmlPathObject;
-use Youmad\Endurance\Kml\Model\KmlPathPoint;
-use Youmad\Endurance\Kml\Model\KmlPathReadResult;
+use Endurance\Kml\Exception\KmlObjectNotFound;
+use Endurance\Kml\Internal\PathParser;
+use Endurance\Kml\Internal\XmlInput;
+use Endurance\Kml\Model\KmlDocument;
+use Endurance\Kml\Model\KmlPathObject;
+use Endurance\Kml\Model\KmlPathPoint;
+use Endurance\Kml\Model\KmlPathReadResult;
 
 final readonly class PathReader
 {

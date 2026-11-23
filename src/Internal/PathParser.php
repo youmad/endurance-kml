@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Internal;
+namespace Endurance\Kml\Internal;
 
-use Youmad\Endurance\Kml\Exception\InvalidKml;
-use Youmad\Endurance\Kml\Model\AltitudeMode;
-use Youmad\Endurance\Kml\Model\KmlDocument;
-use Youmad\Endurance\Kml\Model\KmlPathObject;
-use Youmad\Endurance\Kml\Model\KmlPathPoint;
+use Endurance\Kml\Exception\InvalidKml;
+use Endurance\Kml\Model\AltitudeMode;
+use Endurance\Kml\Model\KmlDocument;
+use Endurance\Kml\Model\KmlPathObject;
+use Endurance\Kml\Model\KmlPathPoint;
 
 /**
  * kml.v2 grammar; kml.v1 locators retain their original interpretation.

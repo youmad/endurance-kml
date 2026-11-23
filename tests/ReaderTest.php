@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Tests;
+namespace Endurance\Kml\Tests;
 
+use Endurance\Kml\Exception\InvalidKml;
+use Endurance\Kml\Exception\KmlObjectNotFound;
+use Endurance\Kml\Model\AltitudeMode;
+use Endurance\Kml\Reader;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use Youmad\Endurance\Kml\Exception\InvalidKml;
-use Youmad\Endurance\Kml\Exception\KmlObjectNotFound;
-use Youmad\Endurance\Kml\Model\AltitudeMode;
-use Youmad\Endurance\Kml\Reader;
 
 final class ReaderTest extends TestCase
 {

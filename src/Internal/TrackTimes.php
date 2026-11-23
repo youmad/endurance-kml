@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Internal;
+namespace Endurance\Kml\Internal;
 
-use Youmad\Endurance\Kml\Exception\InvalidKml;
+use Endurance\Kml\Exception\InvalidKml;
 
 /** GX timestamps precede coordinates; queue them on disk to bound memory. */
 /** @internal */

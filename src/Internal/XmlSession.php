@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Internal;
+namespace Endurance\Kml\Internal;
 
 /**
  * One versioned parse session; discard provisional events if completion fails.

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\Kml\Internal;
+namespace Endurance\Kml\Internal;
 
-use Youmad\Endurance\Kml\Exception\InvalidKml;
+use Endurance\Kml\Exception\InvalidKml;
 
 /** Tokenize incrementally even when all coordinates share one XML text node. @internal */
 final class CoordinateTokens
